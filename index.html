@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Machinate - Simplified, developer-friendly state management</title>
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,600,700" rel="stylesheet">
+  <style>
+    .logo {
+      font-family: Dosis, sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 50px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    h3 {
+      font-weight: 600;
+      font-size: 26px;
+      color: rgb(67, 110, 230);
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: Dosis, sans-serif;
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 210px;
+      margin-bottom: 0px;
+    }
+
+    .container {
+      min-height: 400px;
+      margin: 0 80px 80px;
+      color: #333;
+      padding: 30px;
+    }
+
+    .logo-part {
+      height: 63px;
+      display: flex;
+    }
+
+    div.logo-state {
+      text-align: right;
+      justify-content: flex-end;
+    }
+
+    .logo .moving {
+      transition: 0.5s ease-in-out;
+    }
+
+    .logo .static {
+      transition: 0.5s ease-in-out;
+    }
+
+
+    .logo.active div.logo-state .moving {
+      /* top: 63px; */
+      transform: translateY(28px);
+    }
+
+    .logo:hover div.logo-state .moving {
+      /* top: 63px; */
+      transform: translateY(0px);
+    }
+
+    .logo.active div.logo-machines .moving {
+      /* top: -63px; */
+      transform: translateY(-28px);
+    }
+
+    .logo:hover div.logo-machines .moving {
+      /* top: -63px; */
+      transform: translateY(0px);
+    }
+
+    .logo.active div.logo-part .static {
+      opacity: 0;
+    }
+
+    .logo:hover div.logo-part .static {
+      opacity: 1;
+    }
+
+    .logo-machinate {
+      visibility: hidden;
+    }
+
+    .logo-state {
+      position: relative;
+      top: 35px;
+      color: rgb(212, 11, 145);
+    }
+
+    .logo-machines {
+      position: relative;
+      top: -35px;
+      color: rgb(67, 110, 230);
+    }
+
+    ul {
+      font-size: 22px;
+    }
+
+    .navbar {
+      width: 400px;
+      margin: 0 auto;
+      justify-content: space-between;
+      display: flex;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: rgb(212, 11, 145);
+      text-transform: uppercase;
+      margin: 20px;
+      font-weight: 600;
+    }
+
+    .version {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <a href="https://github.com/pringshia/machinate">Code</a>
+    <a href="#">Docs</a>
+    <a href="#">Tutorial</a>
+  </div>
+  <div class="header">
+    <div class="logo">
+      <div class="logo-part logo-state">
+        <span class="static">St</span>
+        <span class="moving">ate</span>
+      </div>
+      <div class="logo-part logo-machinate">
+        <span class="logo-machinate">Machinate</span>
+      </div>
+      <div class="logo-part logo-machines">
+        <span class="moving">Machin</span>
+        <span class="static">es</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="container">
+    <h3>State management made easy</h3>
+    <ul>
+      <li>Minimal boilerplate</li>
+      <li>Plain Javascript objects</li>
+      <li>Unprescriptive; add to taste</li>
+      <li>Developer-friendly</li>
+      <li>Time-travel</li>
+    </ul>
+  </div>
+  <script>
+    setTimeout(function () {
+      document.getElementsByClassName("logo")[0].classList.add("active");
+    }, 1000)
+  </script>
+</body>
+
+</html>
