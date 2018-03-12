@@ -17,8 +17,11 @@
 
     h3 {
       font-weight: 600;
-      font-size: 26px;
-      color: rgb(67, 110, 230);
+      font-size: 35px;
+      width: 500px;
+      margin: 5px 0 25px;
+      color: rgb(212, 11, 145);
+
     }
 
     body {
@@ -36,8 +39,8 @@
     }
 
     .container {
-      min-height: 400px;
-      margin: 0 80px 80px;
+      /* min-height: 400px; */
+      margin: 0 80px 30px;
       color: #333;
       padding: 30px;
     }
@@ -105,8 +108,35 @@
       color: rgb(67, 110, 230);
     }
 
-    ul {
+    .section-blurb {
+      width: 480px;
+      flex: 1;
+    }
+
+    .section-top {
+      display: flex;
+    }
+
+    .section-demo {
+      flex: 1;
+      margin: 20px;
+    }
+
+    .demo-app {
+      background-color: #eee;
+      padding: 20px;
+    }
+
+    ul.features-list {
       font-size: 22px;
+      margin: 0;
+      color: #555;
+      padding: 0;
+    }
+
+    ul.features-list li {
+      margin-bottom: 10px;
+      list-style: none;
     }
 
     .navbar {
@@ -147,26 +177,38 @@
       </div>
       <div class="logo-part logo-machines">
         <span class="moving">Machin</span>
-        <span class="static">es</span>
+        <span class="static">e</span>
       </div>
     </div>
   </div>
 
   <!-- Header -->
   <div class="container">
-    <h3>State management made easy</h3>
-    <ul>
-      <li>Minimal boilerplate</li>
-      <li>Plain Javascript objects</li>
-      <li>Unprescriptive; add to taste</li>
-      <li>Developer-friendly</li>
-      <li>Time-travel</li>
-    </ul>
+    <div class="section-top">
+      <div class="section-blurb">
+        <h3>Delightful state management for the frustrated React developer</h3>
+        <ul class="features-list">
+          <li>
+            <strong>Dead simple</strong>. Plain javascript objects. Minimal boilerplate.</li>
+          <li>
+            <strong>Instantly launch</strong> your app in any given state. Time-travel.</li>
+          <li>Heavy emphasis on
+            <strong>developer experience</strong>. Your time and sanity are respected.</li>
+          <li>Baked in
+            <strong>best practices</strong>. Guardrails for guidance.</li>
+          <li>High quality
+            <strong>tooling</strong>.</li>
+        </ul>
+      </div>
+      <div class="section-demo">
+        <div class="demo-app">DEMO</div>
+      </div>
+    </div>
   </div>
   <script>
     setTimeout(function () {
       document.getElementsByClassName("logo")[0].classList.add("active");
-    }, 1000)
+    }, 600)
   </script>
 </body>
 
