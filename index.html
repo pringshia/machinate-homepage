@@ -134,6 +134,8 @@
     .demo-app {
       background-color: #eee;
       padding: 10px 15px;
+      display: flex;
+      justify-content: space-between;
     }
 
     ul.features-list {
@@ -179,6 +181,27 @@
 
     .version {
       text-align: center;
+    }
+
+    a#back-button {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    a#back-button:active {
+      position: relative;
+      top: 1px;
+    }
+
+    a#back-button:visited {
+      color: inherit;
+    }
+
+    #root {
+      padding: 20px;
+      margin-top: 20px;
+      border: 2px solid #bbbbbb;
+      background-color: #f9f9f9;
     }
 
     @media only screen and (max-width: 480px) {
@@ -242,7 +265,10 @@
         </ul>
       </div>
       <div class="section-demo">
-        <div class="demo-app">DEMO</div>
+        <div class="demo-app">
+          <span class="title">DEMO</span>
+          <a href="#" id="back-button">⤺ Undo</a>
+        </div>
         <div id="root"></div>
       </div>
     </div>
@@ -252,7 +278,29 @@
       document.getElementsByClassName("logo")[0].classList.add("active");
     }, 1100)
   </script>
-  <script src="https://csb-rlrj879kjn-walagujacm.now.sh/static/js/main.38bc632d.js"></script>
+  <script src="https://csb-rlrj879kjn-laagkgklmb.now.sh/static/js/main.9300f614.js"></script>
+  <script>
+    var machine = demo_machine;
+    window.state_log = [machine.getState()]
+
+    // machine.addListener("triggered-add", (d, t) => console.log(d, t))
+    // machine.addListener("triggered-remove", (d, t) => console.log(d, t))
+
+    machine.addListener("transition", (t, d) => {
+      window.state_log.push(d.state);
+      machine.setBlacklist([]);
+    });
+    document.getElementById("back-button").addEventListener("click", function (e) {
+      e.preventDefault();
+      machine.setBlacklist([".*"]);
+      if (window.state_log.length <= 1) return false;
+      window.state_log.pop();
+      var prev = window.state_log[window.state_log.length - 1];
+      // console.log(window.state_log, prev);
+      machine.setState(prev);
+      return false;
+    });
+  </script>
 </body>
 
 </html>
